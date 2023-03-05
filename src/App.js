@@ -1,6 +1,6 @@
 
 import './App.css';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
 const [advice, setAdvice] = useState('');
@@ -9,11 +9,11 @@ useEffect(()=> {
   getAdvice();
 },[]);
 
-const getAdvice = useCallback(async() => {
+const getAdvice = async() => {
   const response = await fetch(`http://www.boredapi.com/api/activity/ `);
   const data = await response.json();
   setAdvice(data.activity);
-})
+}
 
   return (
     <div className="App">
